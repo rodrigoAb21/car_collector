@@ -17,11 +17,9 @@ class CrearTablaVehiculos extends Migration
             $table->id();
             $table->string('nombre')->nullable();
             $table->string('codigo')->nullable();
-            $table->foreignId('marca_id'); // Clave foránea
-            $table->foreignId('serie_id')->nullable(); // Clave foránea
-            $table->foreignId('usuario_id'); // Sin relación de clave foránea
-            $table->integer('numero_serie')->nullable();
-            $table->integer('numero_coleccion')->nullable();
+            $table->foreignId('marca_id');
+            $table->foreignId('serie_id')->nullable();
+            $table->foreignId('usuario_id');
             $table->boolean('eliminado')->default(0);
 
             $table->foreign('marca_id')->references('id')->on('marcas')->onDelete('cascade');

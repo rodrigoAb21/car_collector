@@ -18,6 +18,10 @@
         th, td{
             white-space: nowrap;
         }
+        input {
+            text-transform: uppercase;
+        }
+
     </style>
 
     @stack('arriba')
@@ -124,6 +128,20 @@
                             <a href="{{url('series')}}" >
                                 <i class="fa fa-warehouse"></i>
                                 <span class="hide-menu">  Series</span>
+                            </a>
+                        </li>
+
+                        <li class="{{ Request::is('vehiculos*') ? 'nav-item active' : 'nav-item' }}">
+                            <a href="{{url('vehiculos')}}" >
+                                <i class="fa fa-car"></i>
+                                <span class="hide-menu">  Vehículos</span>
+                            </a>
+                        </li>
+
+                        <li class="{{ Request::is('deseados*') ? 'nav-item active' : 'nav-item' }}">
+                            <a href="{{url('deseados')}}" >
+                                <i class="fa fa-compass"></i>
+                                <span class="hide-menu">  V. Deseados</span>
                             </a>
                         </li>
                     </ul>

@@ -7,10 +7,10 @@
 
 
                     <h2 class="pb-2">
-                        <i class="fa fa-copyright"></i> Marcas
+                        <i class="fa fa-compass"></i> Vehículos Deseados
                         <div class="float-right">
-                            <a class="btn btn-success" href="{{url('marcas/create')}}">
-                                <i class="fa fa-plus"></i>  Nueva
+                            <a class="btn btn-success" href="{{url('deseados/create')}}">
+                                <i class="fa fa-plus"></i>  Nuevo
                             </a>
                         </div>
                     </h2>
@@ -28,21 +28,27 @@
                             <tr>
                                 <th class="text-center">ID</th>
                                 <th class="text-center">NOMBRE</th>
+                                <th class="text-center">CODIGO</th>
+                                <th class="text-center">MARCA</th>
+                                <th class="text-center">SERIE</th>
                                 <th class="text-center">OPCIONES</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($marcas as $marca)
+                            @foreach($deseados as $deseado)
                                 <tr class="text-center">
-                                    <td>{{$marca->id}}</td>
-                                    <td>{{$marca->nombre}}</td>
+                                    <td>{{$deseado->id}}</td>
+                                    <td>{{$deseado->nombre}}</td>
+                                    <td>{{$deseado->codigo}}</td>
+                                    <td>{{$deseado->marca}}</td>
+                                    <td>{{$deseado->serie}}</td>
                                     <td>
-                                        <a href="{{url('marcas/'.$marca->id.'/edit')}}">
+                                        <a href="{{url('deseados/'.$deseado->id.'/edit')}}">
                                             <button class="btn btn-warning">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$marca -> nombre}}', '{{url('marcas/'.$marca -> id)}}')">
+                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$deseado -> nombre}}', '{{url('deseados/'.$deseado -> id)}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -99,6 +105,9 @@
                         "columns": [
                             {"name": "ID"},
                             {"name": "NOMBRE"},
+                            {"name": "CODIGO"},
+                            {"name": "MARCA"},
+                            {"name": "SERIE"},
                             {"name": "OPCIONES", "orderable": false},
                         ],
                         "order": [[0, 'asc']],

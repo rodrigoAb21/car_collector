@@ -16,10 +16,8 @@ class VehiculoDeseadoRequest extends FormRequest
         return [
             'nombre' => 'required|max:255',
             'codigo' => 'nullable|max:255',
-            'marca' => 'required|max:255',
+            'marca' => 'nullable|max:255',
             'serie' => 'nullable|max:255',
-            'url_foto' => 'required|url|max:255',
-            'eliminado' => 'boolean',
         ];
     }
 }

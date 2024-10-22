@@ -6,9 +6,10 @@
             <div class="card">
                 <div class="card-body">
                     <h2 class="pb-2">
-                            <i class="fa fa-biohazard"></i> Fertilizantes
+                        <i class="fa fa-car"></i> Vehículos
+
                         <div class="float-right">
-                            <a class="btn btn-success" href="{{url('insumos/fertilizantes/create')}}">
+                            <a class="btn btn-success" href="{{url('vehiculos/create')}}">
                                 <i class="fa fa-plus"></i> Nuevo
                             </a>
                         </div>
@@ -27,34 +28,27 @@
                             <tr>
                                 <th class="text-center">ID</th>
                                 <th class="text-center">NOMBRE</th>
-                                <th class="text-center">PRESENTACION</th>
-                                <th class="text-center">TIPO</th>
-                                <th class="text-center">INGREDIENTE ACTIVO</th>
-                                <th class="text-center">EXISTENCIAS</th>
+                                <th class="text-center">CODIGO</th>
+                                <th class="text-center">MARCA</th>
+                                <th class="text-center">SERIE</th>
                                 <th class="text-center">OPCIONES</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($insumos as $insumo)
+                            @foreach($vehiculos as $vehiculo)
                                 <tr class="text-center">
-                                    <td>{{$insumo -> id}}</td>
-                                    <td>{{$insumo -> nombre}}</td>
-                                    <td>{{$insumo -> envase}} {{$insumo->unidad->nombre}}</td>
-                                    <td>{{$insumo -> subtipo -> nombre}}</td>
-                                    <td>{{$insumo -> composicion}}</td>
-                                    <td>{{$insumo -> existencias}}</td>
-                                    <td class="text-center" style="white-space: nowrap">
-                                        <a href="{{url('insumos/fertilizantes/'.$insumo->id)}}">
-                                            <button class="btn btn-outline-info">
-                                                <i class="fa fa-eye"></i>
-                                            </button>
-                                        </a>
-                                        <a href="{{url('insumos/fertilizantes/'.$insumo->id.'/edit')}}">
+                                    <td>{{$vehiculo -> id}}</td>
+                                    <td>{{$vehiculo -> nombre}}</td>
+                                    <td>{{$vehiculo -> codigo}}</td>
+                                    <td>{{$vehiculo -> marca -> nombre}}</td>
+                                    <td>{{ $vehiculo->serie ? $vehiculo->serie->nombre : '' }}</td>
+                                    <td>
+                                        <a href="{{url('vehiculos/'.$vehiculo->id.'/edit')}}">
                                             <button class="btn btn-warning">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$insumo -> nombre}}', '{{url('insumos/fertilizantes/'.$insumo -> id)}}');">
+                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$vehiculo -> nombre}}', '{{url('vehiculos/'.$vehiculo -> id)}}');">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -77,8 +71,8 @@
             function modalEliminar(nombre, url) {
                 $('#modalEliminarForm').attr("action", url);
                 $('#metodo').val("delete");
-                $('#modalEliminarTitulo').html("Eliminar Fertilizante");
-                $('#modalEliminarEnunciado').html("Realmente desea eliminar el fertilizante: " + nombre + "?");
+                $('#modalEliminarTitulo').html("Eliminar Serie");
+                $('#modalEliminarEnunciado').html("Realmente desea eliminar la serie: " + nombre + "?");
                 $('#modalEliminar').modal('show');
             }
 
@@ -115,49 +109,15 @@
                                 "previous": "Anterior"
                             }
                         },
-                        dom: 'Bfrtip',
-                        buttons: [
-                            {
-                                extend: 'pdfHtml5',
-                                orientation: 'landscape',
-                                title:'Fertilizantes '+fechaHoraString,
-                                pageSize: 'LETTER',
-                                customize: function(doc) {
-                                    doc.styles.tableBodyEven.alignment = 'center';
-                                    doc.styles.tableBodyOdd.alignment = 'center';
-                                    doc.content[1].margin = [ 100, 0, 100, 0 ];
-                                    doc['footer']=(function(page, pages) {
-                                        return {
-                                            columns: [
-
-                                                {
-                                                    alignment: 'center',
-                                                    text: [
-                                                        { text: page.toString(), italics: true },
-                                                        ' of ',
-                                                        { text: pages.toString(), italics: true }
-                                                    ]
-                                                }
-                                            ],
-                                            margin: [10, 0]
-                                        }
-                                    });
-                                },
-                                exportOptions: {
-                                    columns: [ 0, 1, 2, 3, 4, 5 ]
-                                }
-                            }
-                        ],
                         "columns": [
                             {"name": "ID"},
                             {"name": "NOMBRE"},
-                            {"name": "PRESENTACION"},
-                            {"name": "TIPO"},
-                            {"name": "INGREDIENTE ACTIVO"},
-                            {"name": "EXISTENCIAS"},
+                            {"name": "CODIGO"},
+                            {"name": "MARCA"},
+                            {"name": "SERIE"},
                             {"name": "OPCIONES", "orderable": false}
                         ],
-                        "order": [[1, 'asc']]
+                        "order": [[0, 'asc']]
                     }
                 );
 

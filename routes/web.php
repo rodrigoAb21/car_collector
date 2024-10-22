@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\SerieController;
+use App\Http\Controllers\VehiculoController;
+use App\Http\Controllers\VehiculoDeseadoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +22,8 @@ Route::get('/', function () {
 })->middleware('auth');
 
 Route::middleware('auth')->group(function (){
-    Route::resource('/marcas', MarcaController::class);
-    Route::resource('/series', SerieController::class);
+    Route::resource('marcas', MarcaController::class);
+    Route::resource('series', SerieController::class);
+    Route::resource('vehiculos', VehiculoController::class);
+    Route::resource('deseados', VehiculoDeseadoController::class);
 });

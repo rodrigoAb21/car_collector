@@ -18,8 +18,6 @@ class Vehiculo extends Model
         'marca_id',
         'serie_id',
         'usuario_id',
-        'numero_serie',
-        'numero_coleccion',
         'eliminado',
     ];
 
