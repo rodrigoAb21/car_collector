@@ -26,7 +26,7 @@
                         <table id="tabla" class="table table-hover table-bordered color-table info-table">
                             <thead>
                             <tr>
-                                <th class="text-center">ID</th>
+                                <th class="text-center">#</th>
                                 <th class="text-center">NOMBRE</th>
                                 <th class="text-center">CODIGO</th>
                                 <th class="text-center">MARCA</th>
@@ -37,7 +37,7 @@
                             <tbody>
                             @foreach($vehiculos as $vehiculo)
                                 <tr class="text-center">
-                                    <td>{{$vehiculo -> id}}</td>
+                                    <td>{{$loop -> iteration}}</td>
                                     <td>{{$vehiculo -> nombre}}</td>
                                     <td>{{$vehiculo -> codigo}}</td>
                                     <td>{{$vehiculo -> marca -> nombre}}</td>

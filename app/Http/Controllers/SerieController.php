@@ -16,6 +16,7 @@ class SerieController extends Controller
         return view('vistas.series.index', [
             'series' => Serie::where('eliminado', false)
                 ->where('usuario_id', $usuarioId)
+                ->orderBy('nombre')
                 ->get(),
         ]);
     }

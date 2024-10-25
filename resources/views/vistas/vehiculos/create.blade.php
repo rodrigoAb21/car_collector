@@ -39,6 +39,17 @@
 
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <div class="form-group">
+                                <label>Marca</label>
+                                <select class="form-control" name="marca_id">
+                                    @foreach($marcas as $marca)
+                                        <option value="{{$marca->id}}">{{$marca->nombre}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
                                 <label>Serie</label>
                                 <select class="form-control" name="serie_id">
                                     <option value="">Seleccione una serie (opcional)</option>
@@ -49,16 +60,7 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                            <div class="form-group">
-                                <label>Marca</label>
-                                <select class="form-control" name="marca_id">
-                                    @foreach($marcas as $marca)
-                                        <option value="{{$marca->id}}">{{$marca->nombre}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
+
 
                     </div>
 

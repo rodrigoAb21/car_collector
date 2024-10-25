@@ -17,6 +17,7 @@ class VehiculoController extends Controller
         return view('vistas.vehiculos.index', [
             'vehiculos' => Vehiculo::where('eliminado', false)
                 ->where('usuario_id', $usuarioId)
+                ->orderBy('nombre')
                 ->get(),
         ]);
     }
@@ -26,10 +27,12 @@ class VehiculoController extends Controller
         $usuarioId = Auth::id();
         $marcas = Marca::where('eliminado', false)
             ->where('usuario_id', $usuarioId)
+            ->orderBy('nombre')
             ->get();
 
         $series = Serie::where('eliminado', false)
             ->where('usuario_id', $usuarioId)
+            ->orderBy('nombre')
             ->get();
 
         return view('vistas.vehiculos.create', [
@@ -58,10 +61,12 @@ class VehiculoController extends Controller
 
         $marcas = Marca::where('eliminado', false)
             ->where('usuario_id', $usuarioId)
+            ->orderBy('nombre')
             ->get();
 
         $series = Serie::where('eliminado', false)
             ->where('usuario_id', $usuarioId)
+            ->orderBy('nombre')
             ->get();
 
         return view('vistas.vehiculos.edit', [

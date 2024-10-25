@@ -26,7 +26,7 @@
                         <table id="tabla" class="table table-hover table-bordered color-table info-table">
                             <thead>
                             <tr>
-                                <th class="text-center">ID</th>
+                                <th class="text-center">#</th>
                                 <th class="text-center">NOMBRE</th>
                                 <th class="text-center">OPCIONES</th>
                             </tr>
@@ -34,7 +34,7 @@
                             <tbody>
                             @foreach($marcas as $marca)
                                 <tr class="text-center">
-                                    <td>{{$marca->id}}</td>
+                                    <td>{{$loop -> iteration}}</td>
                                     <td>{{$marca->nombre}}</td>
                                     <td>
                                         <a href="{{url('marcas/'.$marca->id.'/edit')}}">

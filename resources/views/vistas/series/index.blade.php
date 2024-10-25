@@ -26,7 +26,7 @@
                         <table id="tabla" class="table table-hover table-bordered color-table info-table">
                             <thead>
                             <tr>
-                                <th class="text-center">ID</th>
+                                <th class="text-center">#</th>
                                 <th class="text-center">NOMBRE</th>
                                 <th class="text-center">MARCA</th>
                                 <th class="text-center">OPCIONES</th>
@@ -35,7 +35,7 @@
                             <tbody>
                             @foreach($series as $serie)
                                 <tr class="text-center">
-                                    <td>{{$serie -> id}}</td>
+                                    <td>{{$loop->iteration}}</td>
                                     <td>{{$serie -> nombre}}</td>
                                     <td>{{$serie -> marca -> nombre}}</td>
                                     <td>
