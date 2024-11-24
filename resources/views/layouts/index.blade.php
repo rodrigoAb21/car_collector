@@ -19,9 +19,6 @@
         th, td{
             white-space: nowrap;
         }
-        input {
-            text-transform: uppercase;
-        }
 
     </style>
 
@@ -118,10 +115,10 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
 
-                        <li class="{{ Request::is('marcas*') ? 'nav-item active' : 'nav-item' }}">
-                            <a href="{{url('marcas')}}" >
-                                <i class="fa fa-copyright"></i>
-                                <span class="hide-menu">  Marcas</span>
+                        <li class="{{ Request::is('vehiculos*') ? 'nav-item active' : 'nav-item' }}">
+                            <a href="{{url('vehiculos')}}" >
+                                <i class="fa fa-car"></i>
+                                <span class="hide-menu">  Vehículos</span>
                             </a>
                         </li>
 
@@ -132,10 +129,10 @@
                             </a>
                         </li>
 
-                        <li class="{{ Request::is('vehiculos*') ? 'nav-item active' : 'nav-item' }}">
-                            <a href="{{url('vehiculos')}}" >
-                                <i class="fa fa-car"></i>
-                                <span class="hide-menu">  Vehículos</span>
+                        <li class="{{ Request::is('marcas*') ? 'nav-item active' : 'nav-item' }}">
+                            <a href="{{url('marcas')}}" >
+                                <i class="fa fa-copyright"></i>
+                                <span class="hide-menu">  Marcas</span>
                             </a>
                         </li>
 

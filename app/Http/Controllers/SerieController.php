@@ -36,7 +36,7 @@ class SerieController extends Controller
     public function store(SerieRequest $request)
     {
         $serie = new Serie();
-        $serie->nombre = $request['nombre'];
+        $serie->nombre = strtoupper($request['nombre']);
         $serie->marca_id = $request['marca_id'];
         $serie->usuario_id = Auth::id(); // Asignar usuario autenticado
         $serie->eliminado = $request['eliminado'] ?? 0;
@@ -61,7 +61,7 @@ class SerieController extends Controller
     public function update(SerieRequest $request, $id)
     {
         $serie = Serie::findOrFail($id);
-        $serie->nombre = $request['nombre'];
+        $serie->nombre = strtoupper($request['nombre']);
         $serie->marca_id = $request['marca_id'];
         $serie->eliminado = $request['eliminado'] ?? 0;
         $serie->save();

@@ -27,7 +27,7 @@ class MarcaController extends Controller
     public function store(MarcaRequest $request)
     {
         $marca = new Marca();
-        $marca->nombre = $request['nombre'];
+        $marca->nombre = strtoupper($request['nombre']);
         $marca->usuario_id = Auth::id();
         $marca->save();
 
@@ -44,7 +44,7 @@ class MarcaController extends Controller
     public function update(MarcaRequest $request, $id)
     {
         $marca = Marca::findOrFail($id);
-        $marca->nombre = $request['nombre'];
+        $marca->nombre = strtoupper($request['nombre']);
         $marca->save();
 
         return redirect('marcas')->with(['message' => 'Marca editada exitosamente.']);
